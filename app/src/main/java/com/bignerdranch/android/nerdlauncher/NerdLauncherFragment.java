@@ -53,6 +53,15 @@ public class NerdLauncherFragment extends Fragment {
                         b.loadLabel(pm).toString());
             }
         });
+        for(ResolveInfo ab : activities) {
+            if(ab.loadLabel(pm).toString()=="NerdLauncher"|| ab.loadLabel(pm).toString().equals("NerdLauncher")) {
+                Log.i(TAG, "Found " + ab.loadLabel(pm).toString() + " <==================");
+                //activities.remove(ab);
+                activities.remove(ab);
+                break;
+
+            }
+        }
         Log.i(TAG, "Found " + activities.size() + " activities.");
         mRecyclerView.setAdapter(new ActivityAdapter(activities));
     }
